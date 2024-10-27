@@ -1,6 +1,7 @@
 import { skipMiddlewareFunction } from "mongoose";
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
+import { getReceiverSocketId } from "../socket/socket.js";
 
 export const sendMessage = async (req, res) => {
     try {
@@ -28,9 +29,13 @@ export const sendMessage = async (req, res) => {
             conversation.messages.push(newMassage._id);
         }
 
-        //SOCKET IO functionality 
-
         await Promise.all([conversation.save(), newMessage.save()]);
+
+        //SOCKET IO functionality 
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if(receiverSocketI){
+            io.to(receiverSocketId).emit("newMessage", newMassage) //io.to emit is used to send events to a spesific client
+        }
 
         res.status(201).json(newMassage);
 
