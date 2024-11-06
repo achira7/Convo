@@ -11,7 +11,7 @@ const GenderSelect = ({ onGenderChange, selectedGender }) => {
             checked={selectedGender === "male"}
             onChange={() => onGenderChange('male')}
           />
-          <span className="label-text">Male</span>
+          <span className="label-text text-emerald-900">Male</span>
         </label>
       </div>
       <div className="form-control">
@@ -24,7 +24,7 @@ const GenderSelect = ({ onGenderChange, selectedGender }) => {
             checked={selectedGender === "female"}
             onChange={() => onGenderChange('female')}
           />
-          <span className="label-text">Female</span>
+          <span className="label-text text-emerald-900">Female</span>
         </label>
       </div>
     </div>

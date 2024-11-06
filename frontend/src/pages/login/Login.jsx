@@ -18,14 +18,14 @@ const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 border border-gray-300">
-        <h1 className="text-3xl font-semibold text-center text-emerald-400">
+        <h1 className="text-3xl font-semibold text-center text-emerald-500 drop-shadow-xl">
           Login
-          <span className="text-emerald-600"> Convo</span>
+          <span className="text-emerald-600 drop-shadow-xl"> Convo</span>
         </h1>
         <form action="" onSubmit={handleSubmit}>
           <div className="">
             <label htmlFor="" className="label p-2">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text text-emerald-900">Username</span>
             </label>
             <input
               type="text"
@@ -38,7 +38,7 @@ const Login = () => {
 
           <div className="">
             <label htmlFor="" className="label p-2">
-              <span className="text-base label-text">Password</span>
+              <span className="text-base label-text text-emerald-900">Password</span>
             </label>
             <input
               type="password"
@@ -51,12 +51,12 @@ const Login = () => {
 
           <Link
             to="/signup"
-            className="text-sm hover:underline hover:text-blue-600 mt-2 inline-block"
+            className="text-sm text-emerald-600 hover:underline hover:text-blue-600 mt-2 inline-block"
           >
             {"Don't"} have an Account?
           </Link>
           <div>
-            <button className="btn btn-block btn-sm mt-2" disabled={loading}>
+            <button className="btn btn-block btn-sm mt-2 btn-success text-white" disabled={loading}>
               {loading ? <span className="loading loading-spinner"></span> : "Login"}
             </button>
           </div>

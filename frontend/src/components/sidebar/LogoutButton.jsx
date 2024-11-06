@@ -7,7 +7,7 @@ const LogoutButton = () => {
     <div className="mt-auto">
       {!loading ? (
         <BiLogOut
-          className="w-8 h-8 mx-2 text-emerald-700 hover:text-red-700 duration-150"
+          className="w-8 h-8 mx-2 text-emerald-700 hover:text-red-700 duration-150 cursor-pointer"
           onClick={logout}
         />
       ) : (
