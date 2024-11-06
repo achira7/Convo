@@ -19,25 +19,25 @@ export const sendMessage = async (req, res) => {
             })
         }
 
-        const newMassage = new Message({
+        const newMessage = new Message({
             senderId,
             receiverId,
             message,
         })
 
-        if(newMassage){
-            conversation.messages.push(newMassage._id);
+        if(newMessage){
+            conversation.messages.push(newMessage._id);
         }
 
         await Promise.all([conversation.save(), newMessage.save()]);
 
         //SOCKET IO functionality 
         const receiverSocketId = getReceiverSocketId(receiverId);
-        if(receiverSocketI){
-            io.to(receiverSocketId).emit("newMessage", newMassage) //io.to emit is used to send events to a spesific client
+        if(receiverSocketId){
+            io.to(receiverSocketId).emit("newMessage", newMessage) //io.to emit is used to send events to a spesific client
         }
 
-        res.status(201).json(newMassage);
+        res.status(201).json(newMessage);
 
     } catch (error) {
         console.log("Error in sendMessage controller", error.message);
